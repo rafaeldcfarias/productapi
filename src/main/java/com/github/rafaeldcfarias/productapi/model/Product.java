@@ -3,17 +3,19 @@ package com.github.rafaeldcfarias.productapi.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
-@Table
 @Data
+@NoArgsConstructor
 public class Product {
 
 	@Id
+	@GeneratedValue
 	private Long id;
 
 	private String description;
@@ -21,4 +23,12 @@ public class Product {
 	private String imageUrl;
 
 	private BigDecimal price;
+
+	public Product(String description, String imageUrl, BigDecimal price) {
+		super();
+		this.description = description;
+		this.imageUrl = imageUrl;
+		this.price = price;
+	}
+
 }
